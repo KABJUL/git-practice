@@ -36,3 +36,55 @@ git push
 
 git pull
 
+# BRING IT ON
+
+This task is performed immediately after the previous one (I Can Win).
+## 1. Add a .gitignore file to the project and configure it to hide files with the extension .db, .log and directories with the names target or bin.
+
+cd /d/GitProjects/git-practice
+touch .gitignore
+    *.db
+    *.log
+    target/
+    bin/
+
+## 2. Create a feature branch and add two commits to it
+
+git checkout -b feature
+git add song.txt
+git commit -m ""
+git add song.txt
+git commit -m ""
+
+## 3. Merge the feature branch in master
+
+git checkout main
+git merge feature
+
+## 4. Return to feature and create the arrows.txt file with the following contents:
+The ship glides gently on the waves
+As day turns into night
+
+Make a commit.
+
+git checkout feature
+git add arrows.txt
+git commit -m "Add first two lines to arrows"
+
+## 5. Go to master. Create the arrows.txt file there and add the following text:
+One thousand burning arrows
+Fill the starlit sky
+
+Make a commit.
+
+git checkout main
+git add arrows.txt
+git commit -m "Add last two lines to arrows"
+
+## 6. Merge feature in master resolving the conflict: save all 4 lines in arrows.txt file in the order they were added in steps 4 and 5.
+
+git merge feature
+git add arrows.txt
+git commit -m ""
+git push
+git push -u origin feature
